@@ -1,0 +1,68 @@
+html{
+    font-size: 16px;
+}
+@media only screen and (min-width: 320px) and (max-width: 374px) {
+    html {
+        font-size: 16px !important;
+    }
+}
+@media only screen and (min-width: 375px) and (max-width: 413px) {
+    html {
+        font-size: 18.75px !important;
+    }
+}
+@media only screen and (min-width: 414px) and (max-width: 767px) {
+    html {
+        font-size: 20.7px !important;
+    }
+}
+@media only screen and (min-width: 768px) and (max-width: 1023px) {
+    html {
+        font-size: 38.4px !important;
+    }
+}
+@media only screen and (min-width: 1024px) and (max-width: 1241px) {
+    html {
+        font-size: 51.2px !important;
+    }
+}
+
+body,html{
+    height: 100%;
+    // touch-action: none;//当你触摸并按住触摸目标时候，禁止系统默认菜单
+}
+// 首页小标题
+.home-title{
+    height: 47px;
+    border-bottom: 1px solid #e4e4e4;
+    background: #fff;
+    span{
+        float: left;
+        position: relative;
+        padding-left: 20px;
+        font-size:20px;
+        line-height:47px;
+        color: #333;
+        font-weight: 400;
+    }
+    span::before{
+        content: "";
+        position: absolute;
+        left: 10px;
+        top: 50%;
+        margin-top:-10px;
+        border-left: solid #ec5196;
+        border-left-width: 2px;
+        height: 20px;
+    }
+    a{
+        float: right;
+        line-height:47px;
+        font-weight: 400;
+        font-size: 14px;
+        padding-right: 10px;
+        color: #9f9f9f; 
+    }
+    
+    
+}
