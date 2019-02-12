@@ -31,6 +31,19 @@ body,html{
     height: 100%;
     // touch-action: none;//当你触摸并按住触摸目标时候，禁止系统默认菜单
 }
+a{color:#666666;}
+#container{
+    height: 100%;
+    .page{
+        height: 100%;
+        display: flex;
+        flex-direction:column;
+        .main{
+            flex:1;
+            overflow-x:hidden;
+        }
+    }
+}
 // 首页小标题
 .home-title{
     height: 47px;
@@ -65,4 +78,46 @@ body,html{
     }
     
     
+}
+
+//页面头部
+.home-tabs{
+    background: #ec5196;
+    height: 51px;
+    padding: 0 10px;
+    .left{
+        color:#fff;
+        font-size: 25px;
+        line-height: 51px;
+    }
+    .search{
+        box-sizing: border-box;
+        position:fixed;
+        top:6px;
+        left:15%;
+        z-index:11;
+        width:70%;
+        input[type="text"]{
+            box-sizing: inherit;
+            height: 38px;
+            border-radius:5px;
+            font-size:16px;
+            width:100%;
+            padding:0 15%;
+        }
+        i{color:#555555;position:absolute;top:50%;left:10px;transform:translateY(-50%);font-size: 25px;}
+    }
+    .more{
+        float: right;
+        color: #fff;
+        font-size: 30px;
+        line-height: 51px;
+    }
+    .text{
+        display:inline-block;
+        text-align: center;
+        color: #fff;
+        width:70%;
+        
+    }
 }

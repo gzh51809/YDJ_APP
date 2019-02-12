@@ -3,11 +3,11 @@
         <header>
             <mt-header title="伊的家" class="mt-header" fixed>
                 <i slot="left" class="logoImg"></i>
-                <i class="server" slot="right" @click="goto('Contact')"></i>
+                <i class="server iconfont icon-caidan" slot="right" @click="goto('Contact')"></i>
             </mt-header>
             <div class="search">
                 <input type="text" placeholder="搜索伊的家商品">
-                <i class="iconfont icon-sousuo"></i>
+                <i class="iconfont icon-fangdajing"></i>
             </div>
         </header>
         <div class="main">
@@ -64,6 +64,9 @@ export default {
             }   
             
        }
+       .server{
+           font-size: 30px;
+       }
        .search{
                 box-sizing: border-box;
                 position:fixed;
@@ -79,7 +82,7 @@ export default {
                     width:100%;
                     padding:0 15%;
                 }
-                i{color:#555555;position:absolute;top:50%;left:10px;transform:translateY(-50%);}
+                i{color:#555555;position:absolute;top:50%;left:10px;transform:translateY(-50%);font-size: 25px;}
             }
     }
 </style>

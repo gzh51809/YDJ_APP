@@ -39,9 +39,9 @@ export default {
             let data = res.data.response.nutrition;
             let dataT = data;
             this.goodsHot1 = dataT.splice(0,3);
-            console.log(data,this.goodsHot1);
+            // console.log(data,this.goodsHot1);
             this.goodsHot2 = data;
-            console.log(this.goodsHot2)
+            // console.log(this.goodsHot2)
         })
     }
 }

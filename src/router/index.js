@@ -11,6 +11,9 @@ import Home from '@com/Home';
 import List from '@com/List';
 import Mine from '@com/Mine';
 import Cart from '@com/Cart';
+import ActivityList from '@com/ActivityList';
+import YiRiHui from '@com/YiRiHui';
+
 // import Search from '@com/Search';
 // import Master from '@com/Master';
 // import Login from '@com/Login';
@@ -29,6 +32,8 @@ const routes = [
     },
     {name:'Mine',path:'/mine',component:Mine},
     {name:'Cart',path:'/cart',component:Cart},
+    {name:'ActivityList',path:'/activitylist',component:ActivityList},
+    {name:'YiRiHui',path:'/yirihui',component:YiRiHui},
     // {
     //     name:'Search',
     //     path:'/search',

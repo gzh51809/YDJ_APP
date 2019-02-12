@@ -38,6 +38,10 @@ import HomeTitle from '@/plugins/HomeTitle';
 //使用插件
 Vue.use(HomeTitle);
 
+//引入HomeTabs插件并使用
+import HomeTabs from '@/plugins/HomeTabs';
+Vue.use(HomeTabs);
+
 import axios from 'axios';
 //把axios写入Vue的原型对象，后面方便调用
 Vue.prototype.$axios = axios;
