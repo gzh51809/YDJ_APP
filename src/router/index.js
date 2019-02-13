@@ -13,7 +13,7 @@ import Mine from '@com/Mine';
 import Cart from '@com/Cart';
 import ActivityList from '@com/ActivityList';
 import YiRiHui from '@com/YiRiHui';
-
+import Details from '@com/Details';
 // import Search from '@com/Search';
 // import Master from '@com/Master';
 // import Login from '@com/Login';
@@ -34,6 +34,7 @@ const routes = [
     {name:'Cart',path:'/cart',component:Cart},
     {name:'ActivityList',path:'/activitylist',component:ActivityList},
     {name:'YiRiHui',path:'/yirihui',component:YiRiHui},
+    {name:'Details',path:'/details/:id',component:Details},
     // {
     //     name:'Search',
     //     path:'/search',
@@ -46,7 +47,7 @@ const routes = [
     // {name:'Login',path:'/login',component:Login},
     // {name:'Reg',path:'/reg',component:Reg},
     // {name:'Contact',path:'/contact',component:Contact},
-    // {name:'Detail',path:'/detail/:id',component:Detail},
+    
     /*{
         // name:'Category',
         path:'/category',

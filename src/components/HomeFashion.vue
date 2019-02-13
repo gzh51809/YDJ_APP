@@ -2,7 +2,7 @@
     <section class="home-fashion">
         <HomeTitle class="HomeTitle">时装</HomeTitle>
         <div class="fashionTop">
-            <div class="t_3column" v-for="item in goodsHot1" :key="item.id">
+            <div class="t_3column" v-for="item in goodsHot1" :key="item.id" @click="toDetails(item.goods_id)">
                 <a href="javascript:;">
                     <img :src="connectImg(item.img_name)" alt="">
                 </a>
@@ -10,7 +10,7 @@
         </div>
         <div class="fashionBtm">
             <div class="t_4column">
-                <a href="javascript:;" v-for="item in goodsHot2" :key="item.id">
+                <a href="javascript:;" v-for="item in goodsHot2" :key="item.id" @click="toDetails(item.goods_id)">
                     <img :src="connectImg(item.img_name)" alt="">
                 </a>
             </div>
@@ -29,8 +29,13 @@ export default {
     methods:{
         connectImg(url){
             return "https://img2.yidejia.com/"+url
+        },
+        toDetails(id){
+            this.$router.push({path:'/details/'+id});
+            console.log(id);
         }
     },
+
     created(){
         this.$axios.get('dbapi/index.php?api=index.index').then(res=>{
             let data = res.data.response.fashion;
