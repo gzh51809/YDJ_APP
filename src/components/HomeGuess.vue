@@ -2,7 +2,7 @@
     <div class="home-guess">
         <h3 class="youGuess">- 猜你喜欢 -</h3>
         <div class="hot-top">
-            <div class="t_3column" v-for="item in goodsHot1" :key="item.id">
+            <div class="t_3column" v-for="item in goodsHot1" :key="item.id" @click="toDetails(item.goods_id)">
                 <a href="javascript:;">
                     <img :src="connectImg(item.img_name)" alt="">
                     <footer>
@@ -26,6 +26,10 @@ export default {
     methods:{
         connectImg(url){
             return "https://img2.yidejia.com/"+url
+        },
+
+        toDetails(id){
+            this.$router.push({path:'/details/'+id})
         }
     },
     created(){

@@ -2,7 +2,7 @@
     <div class="index-nav">
         <div class="nav-bar">
             <mt-tabbar v-model="selected">
-                <mt-tab-item :id="tab.id" v-for="tab in tabs" :key="tab.id">
+                <mt-tab-item :id="tab.id" v-for="tab in tabs" :key="tab.id" @click.native="goto(tab.path)">
                     <i :class="tab.icom" :style="{background:tab.icomColor}"></i>
                     <span>{{tab.text}}</span>    
                 </mt-tab-item>
@@ -27,14 +27,14 @@ export default {
                     id:'01',
                     text:'活动馆',
                     icom:'iconfont icon-Shapecopy',
-                    path:'/activity/list',
+                    path:'/activitylist',
                     icomColor:'#91a7ff'
 
                 },{
                     id:'02',
                     text:'伊日惠',
                     icom:'iconfont icon-huodong',
-                    path:'/discount/list',
+                    path:'/yirihui',
                     icomColor:'#ef5388'
                 },{
                     id:'03',
@@ -51,6 +51,12 @@ export default {
                 }
 
             ]
+        }
+    },
+    methods:{
+        goto(path){
+            console.log(path)
+            this.$router.push({path})
         }
     }
 }

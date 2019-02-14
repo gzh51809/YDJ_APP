@@ -1,7 +1,7 @@
 <template>
     <div class="m_hot">
         <div class="hot-top">
-            <div class="t_3column" v-for="item in goodsHot1" :key="item.id">
+            <div class="t_3column" v-for="item in goodsHot1" :key="item.id" @click="toDetails(item.goods_id)">
                 <a href="javascript:;">
                     <img :src="connectImg(item.img_name)" alt="">
                 </a>
@@ -9,7 +9,7 @@
         </div>
         <div class="hot-btm">
             <div class="t_4column">
-                <a href="javascript:;" v-for="item in goodsHot2" :key="item.id">
+                <a href="javascript:;" v-for="item in goodsHot2" :key="item.id" @click="toDetails(item.goods_id)">
                     <img :src="connectImg(item.img_name)" alt="">
                 </a>
             </div>
@@ -29,6 +29,9 @@ export default {
     methods:{
         connectImg(url){
             return "https://img2.yidejia.com/"+url
+        },
+        toDetails(id){
+            this.$router.push({path:'/details/'+id})
         }
     },
     created(){
@@ -36,9 +39,9 @@ export default {
             let data = res.data.response.top;
             let dataT = data;
             this.goodsHot1 = dataT.splice(0,3);
-            console.log(data,this.goodsHot1);
+            // console.log(data,this.goodsHot1);
             this.goodsHot2 = data;
-            console.log(this.goodsHot2)
+            // console.log(this.goodsHot2)
         })
     }
 }

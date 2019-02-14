@@ -3,7 +3,7 @@
         <div class="carousel">
             <mt-swipe :auto="3000">
                 <mt-swipe-item v-for="item in recommend" :key="item.id">
-                    <img :src="connectImg(item.img_name)"/>
+                    <img :src="connectImg(item.img_name)"  @click="toDetails(item.goods_id)"/>
                 </mt-swipe-item>
             </mt-swipe>
         </div>
@@ -19,6 +19,10 @@ export default {
     methods:{
         connectImg(url){
             return "https://img2.yidejia.com/"+url
+        },
+        toDetails(id){
+            this.$router.push({path:'/details/'+id});
+            // console.log(id);
         }
     },
 

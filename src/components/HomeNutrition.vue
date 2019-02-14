@@ -2,14 +2,14 @@
     <section class="home-nutrition">
         <HomeTitle class="HomeTitle">营养</HomeTitle>
         <div class="fashionTop">
-            <div class="t_3column" v-for="item in goodsHot1" :key="item.id">
+            <div class="t_3column" v-for="item in goodsHot1" :key="item.id" @click="toDetails(item.goods_id)">
                 <a href="javascript:;">
                     <img :src="connectImg(item.img_name)" alt="">
                 </a>
             </div>
         </div>
         <div class="fashionTop">
-            <div class="t_3column" v-for="item in goodsHot2" :key="item.id">
+            <div class="t_3column" v-for="item in goodsHot2" :key="item.id" @click="toDetails(item.goods_id)">
                 <a href="javascript:;">
                     <img :src="connectImg(item.img_name)" alt="">
                 </a>
@@ -32,6 +32,9 @@ export default {
     methods:{
         connectImg(url){
             return "https://img2.yidejia.com/"+url
+        },
+        toDetails(id){
+            this.$router.push({path:'/details/'+id})
         }
     },
     created(){

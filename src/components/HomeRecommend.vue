@@ -1,5 +1,5 @@
 <template>
-    <div class="home-recommend">
+    <div class="home-recommend" @click="toDetails(goods.goods_id)">
             <img :src="connectImg(goods.img_name)" alt="">
     </div>
 </template>
@@ -13,6 +13,9 @@ export default {
     methods:{
         connectImg(url){
             return "https://img2.yidejia.com/"+url
+        },
+        toDetails(id){
+            this.$router.push({path:'/details/'+id})
         }
     },
 

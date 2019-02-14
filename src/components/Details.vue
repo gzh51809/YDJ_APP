@@ -9,71 +9,73 @@
             </p> 
         </header>
         <div class="main">
-            <div class="detailImg">
-                <img src="https://img2.yidejia.com/8/2017/08/19/89bd9f5ebc2a.jpg" alt="">
-                <h3>AC02保湿嫩肤洁面乳 (二代) 100g</h3>
-                <p>
-                    <b>￥ 88.00</b>
-                    <span>规格: 100g</span>
-                </p>
-            </div>
-            <div class="select">
-                <p>
-                    <span>选择: </span>
-                    <b>1件</b> 
-                </p>
-                <i class="iconfont icon-jiantou"></i>
-            </div>
-            <div class="about">
-                <span>
-                    <i class="iconfont icon-choosehandle"></i>
-                    <b>正品保证</b>
-                </span>
-                <span>
-                    <i class="iconfont icon-choosehandle"></i>
-                    <b>实物拍摄</b>
-                </span>
-                <span>
-                    <i class="iconfont icon-choosehandle"></i>
-                    <b>299包邮</b>
-                </span>
-            </div>
-            <section class="estimate">
-                <div class="estimateTop">
+            <section>
+                <div class="detailImg">
+                    <img :src="connectImg(goodsItem.imgname)" alt="">
+                    <h3>{{goodsItem.goods_name}}</h3>
                     <p>
-                        <span>累计评价: </span>
-                        <b>(2222)</b> 
-                    </p>
-                    <p class="right">
-                        <span>已售77777</span>
-                        <i class="iconfont icon-jiantou"></i>
+                        <b>￥ {{goodsItem.price}}</b>
+                        <span>{{goodsItem.spec}}</span>
                     </p>
                 </div>
-                <div class="content">
-                    <ol>
-                        <li>
-                            <img src="https://img2.yidejia.com/3/2012/09/11/6743f40fd545.jpg!100" alt="">
-                            <div class="user">
-                                <b>商城用户</b>
-                                <span>
-                                    <i class="iconfont icon-stars"></i>
-                                    <i class="iconfont icon-stars"></i>
-                                    <i class="iconfont icon-stars"></i>
-                                    <i class="iconfont icon-stars"></i>
-                                    <i class="iconfont icon-stars"></i>
-                                </span>
-                                <p>很好和那hi</p>
-                                <time>2018-10-11</time>
-                            </div>        
-                        </li>
-                    </ol>
+                <div class="select">
+                    <p>
+                        <span>选择: </span>
+                        <b>1件</b> 
+                    </p>
+                    <i class="iconfont icon-jiantou"></i>
                 </div>
+                <div class="about">
+                    <span>
+                        <i class="iconfont icon-choosehandle"></i>
+                        <b>正品保证</b>
+                    </span>
+                    <span>
+                        <i class="iconfont icon-choosehandle"></i>
+                        <b>实物拍摄</b>
+                    </span>
+                    <span>
+                        <i class="iconfont icon-choosehandle"></i>
+                        <b>299包邮</b>
+                    </span>
+                </div>
+                <section class="estimate">
+                    <div class="estimateTop">
+                        <p>
+                            <span>累计评价: </span>
+                            <b>({{goodsItem.remarks}})</b> 
+                        </p>
+                        <p class="right">
+                            <span>已售{{goodsItem.sells}}</span>
+                            <i class="iconfont icon-jiantou"></i>
+                        </p>
+                    </div>
+                    <div class="content">
+                        <ol>
+                            <li>
+                                <img src="https://img2.yidejia.com/3/2012/09/11/6743f40fd545.jpg!100" alt="">
+                                <div class="user">
+                                    <b>商城用户</b>
+                                    <span>
+                                        <i class="iconfont icon-stars"></i>
+                                        <i class="iconfont icon-stars"></i>
+                                        <i class="iconfont icon-stars"></i>
+                                        <i class="iconfont icon-stars"></i>
+                                        <i class="iconfont icon-stars"></i>
+                                    </span>
+                                    <p>很好和那hi</p>
+                                    <time>2018-10-11</time>
+                                </div>        
+                            </li>
+                        </ol>
+                    </div>
+                </section>
             </section>
         </div>
         <footer>
-            <span class="collect"><i class="iconfont icon-stars"></i>收藏</span>
+            <span :class="this.show== true ?'collectF':'collect'" @click="show=!show"><i class="iconfont icon-stars"></i>{{show?'收藏':'已收藏'}}</span>
             <span class="addCart">加入购物车</span>
-            <span>立即购买</span>
+            <span class="liji">立即购买</span>
         </footer>
     </div>
 </template>
@@ -81,19 +83,25 @@
 export default {
     data(){
         return {
-            yirihui:[]
+            goodsItem:[],
+            // collect:'collect',
+            show:true
         }
     },
     methods:{
         connectImg(url){
-            return "https://img2.yidejia.com/"+url
+            // console.log('123',url)
+            let Url =  url!=undefined  ? url:this.goodsItem.carousel_image[0];
+            // console.log('456',Url)
+            return "https://img2.yidejia.com/"+Url
         }
     },
     created(){
         console.log(this.$route.params.id);
         this.$axios.get(`dbapi/index.php?api=index.product.get&goods_id=${this.$route.params.id}`).then(res=>{
-            let data = res.data.response;
-            console.log(data)
+            let data = res.data;
+            this.goodsItem = data.response;
+            // console.log(this.goodsItem)
         })
     },
 }
@@ -287,23 +295,31 @@ export default {
             height: 50px;
             line-height: 50px;
             display: flex;
+            background: #fff;
+            
             span{
                 display: inline-block;
                 width: 33.33%;
                 text-align: center;
-                background: #ec5196;
+                
                 font-size: 16px;
                 color: #fff;
             }
-            .collect{
-                background: #fff;
+            .collectF{
                 color: #909090;
+            }
+            .collect{
+                color: #ec5196;
+                
                 i{
                     font-size: 25px;
                 }
             }
             .addCart{
                 background: orange;
+            }
+            .liji{
+                background: #ec5196;
             }
         }
     }

@@ -32,7 +32,7 @@ export default {
         },
         toDetails(id){
             this.$router.push({path:'/details/'+id});
-            console.log(id);
+            // console.log(id);
         }
     },
 
@@ -41,7 +41,7 @@ export default {
             let data = res.data.response.fashion;
             let dataT = data;
             this.goodsHot1 = dataT.splice(0,3);
-            console.log(data,this.goodsHot1);
+            // console.log(data,this.goodsHot1);
             this.goodsHot2 = data;
             console.log(this.goodsHot2)
         })
