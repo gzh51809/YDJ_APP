@@ -1,7 +1,7 @@
 <template>
     <div class="page">
         <HomeTabs class="home-tabs">
-            <span slot="left" class="left iconfont icon-fanhui"></span>
+            <span slot="left" class="left iconfont icon-fanhui" @click="back"></span>
             <span slot="centen" class="text">
                 伊日惠
             </span>
@@ -39,6 +39,9 @@ export default {
     methods:{
         connectImg(url){
             return "https://img2.yidejia.com/"+url
+        },
+        back(){
+            this.$router.back();
         }
     },
     created(){

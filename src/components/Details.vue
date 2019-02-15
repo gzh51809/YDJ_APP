@@ -1,7 +1,7 @@
 <template>
     <div class="page">
         <header class="detail-tabs">
-            <span class="left iconfont icon-fanhui"></span>
+            <span class="left iconfont icon-fanhui" @click="back"></span>
             <p class="text">
                <span class="active">详情</span>
                <span>图文</span>
@@ -11,7 +11,7 @@
         <div class="main">
             <section>
                 <div class="detailImg">
-                    <img :src="connectImg(goodsItem.imgname)" alt="">
+                    <img :src="connectImg(goodsItem.imgname)" alt=""/>
                     <h3>{{goodsItem.goods_name}}</h3>
                     <p>
                         <b>￥ {{goodsItem.price}}</b>
@@ -94,7 +94,10 @@ export default {
             let Url =  url!=undefined  ? url:this.goodsItem.carousel_image[0];
             // console.log('456',Url)
             return "https://img2.yidejia.com/"+Url
-        }
+        },
+        back(){
+            this.$router.back();
+        },
     },
     created(){
         console.log(this.$route.params.id);

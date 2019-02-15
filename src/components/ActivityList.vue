@@ -1,7 +1,7 @@
 <template>
     <div class="page">
         <HomeTabs class="home-tabs">
-            <span slot="left" class="left iconfont icon-fanhui"></span>
+            <span slot="left" class="left iconfont icon-fanhui" @click="back"></span>
             <span slot="centen" class="text">
                 活动馆
             </span>
@@ -38,6 +38,9 @@ export default {
         scrollToTop() { 
         　　var scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop;
         　　console.log(111) 
+        },
+        back(){
+            this.$router.back();
         }
     },
     created(){

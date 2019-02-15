@@ -1,7 +1,7 @@
 <template>
     <div class="page">
         <HomeTabs class="home-tabs">
-            <span slot="left" class="left iconfont icon-fanhui"></span>
+            <span slot="left" class="left iconfont icon-fanhui" @click="back"></span>
             <div slot="centen" class="search">
                 <input type="text" placeholder="搜索伊的家商品">
                 <i class="iconfont icon-fangdajing"></i>
@@ -54,6 +54,9 @@ export default {
         changeList(idx){
             this.selectedIndex = idx;
             this.active=idx;
+        },
+        back(){
+            this.$router.back();
         }
     },
 
